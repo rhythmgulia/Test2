@@ -14,5 +14,13 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Run JAR'){
+            steps{
+                script{
+                    def output= sh(script: 'C:\ProgramData\Jenkins\.jenkins\workspace\praccc\target\simple-java-project-1.0-SNAPSHOT.jar', returnStdout: true).trim();
+                    System.out.println(output)
+                }
+            }
+        }
     }
 }
